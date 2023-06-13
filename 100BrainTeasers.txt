@@ -1,0 +1,1549 @@
+// See https://aka.ms/new-console-template for more information
+
+
+
+using System;
+using System.Globalization;
+using System.Reflection;
+using System.Security.Cryptography.X509Certificates;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+
+namespace ConsoleApp7;
+
+class Program
+{
+    //Q1
+    public static int Sum(int x, int y)
+    {
+        return x == y ? (x + y) * 3 : x + y;
+    }
+    //Q2
+    public static int Diffrence(int n)
+    {
+
+        return n <= 51 ? 51 - n : (n - 51) * 3;
+
+    }
+    //Q3
+    public static bool IsEqualToThrity(int x, int y)
+    {
+
+        return x + y == 30 || x == 30 || y == 30 ? true : false;
+
+
+    }
+    //Q4
+
+    public static bool IsItAroundByTenDigits(int hunderds, int ten)
+    {
+        int total = hunderds - ten;
+        return total > 10 ? false : true;
+
+        //if (n > 89 && n < 111)
+        //{
+        //    return true;
+        //}
+        //else if (n >= 189 && n < 211)
+        //{
+        //    return true;
+        //}
+        //else { return false; }
+
+
+    }
+    //Q5
+
+    public static string IfMission(string word)
+    {
+        return word.StartsWith("if") ? word : "if " + word;
+
+
+    }
+    //Q6
+    public static string LetterRmover(string word, int index)
+    {
+        return index >= 0 && index <= word.Length - 1 ? word.Remove(index, 1) : "try removing somthing else";
+
+    }
+    //Q7
+    public static string ExchangeLetters(string word)
+    {
+        string firstLetter = word.Substring(0, 1);
+        string lastLetter = word.Substring(word.Length - 1, 1);
+
+        word = word.Remove(0, 1);
+        word = word.Remove(word.Length - 1, 1);
+
+
+        return lastLetter + word + firstLetter.ToLower();
+
+    }
+    //Q8
+
+    public static string DuplicateFirstTwoLetters(string word)
+    {
+        return word.Substring(0, 2) + word.Substring(0, 2) + word.Substring(0, 2) + word.Substring(0, 2);
+    }
+    //Q9
+    public static string DuplicateLastLetter(string word)
+    {
+        string lastLetter = word.Substring(word.Length - 1, 1);
+        return lastLetter + word + lastLetter;
+
+    }
+    //Q10
+    public static bool IsItAMultiplOf3or7(int n)
+    {
+        return n % 7 == 0 || n % 3 == 0 ? true : false;
+
+    }
+    //Q11
+    public static string DuplicateFirstLetter(string word)
+    {
+        string first2Letters = word.Substring(0, 3);
+
+        return first2Letters + word + first2Letters;
+
+    }
+    //Q12
+    public static bool IsItStartingWithCSharp(string word)
+    {
+
+
+        return word.StartsWith("C#") ? true : false;
+
+    }
+    //Q13
+    public static bool IsGreaterThenHunderdLessThenZero(int x, int y)
+    {
+
+
+        return x > 100 && y < 0 || x < 0 && y > 100 ? true : false;
+
+    }
+    //Q14
+    public static bool IsBtweenOneHunderdAndTwoHundred(int x, int y)
+    {
+
+
+        return x >= 100 && y <= 200 || x <= 200 && y >= 100 ? true : false;
+
+    }
+    //Q15
+    public static bool IsBtweenTwantiyAndFifty(int x, int y, int z)
+    {
+
+
+        return x >= 20 && x <= 50 || y >= 20 && y <= 50 || z >= 20 && z <= 50 ? true : false;
+
+    }
+    //Q16
+    public static bool IsBtweenTwantiyAndFifty(int x, int y)
+    {
+
+
+        return x >= 20 && x <= 50 || y >= 20 && y <= 50 ? true : false;
+
+    }
+    //Q17
+    public static string StartWithYT(string word)
+    {
+        return word.IndexOf("yt") == 1 ? word.Remove(1, 2) : word;
+
+
+
+    }
+
+    //Q18
+    public static int WhosBigger(int x, int y, int z)
+    {
+        x = Math.Max(x, y);
+        z = Math.Max(x, z);
+
+        return z;
+
+    }
+    //Q19 
+    public static void ClosestToHunderd()
+    {
+        Console.Write("Enter first number ");
+        int firstNumber = Convert.ToInt32(Console.ReadLine());
+        Console.Write("Enter sec number ");
+
+        int secNumber = Convert.ToInt32(Console.ReadLine());
+        if (firstNumber == secNumber)
+            Console.WriteLine(0);
+        else if (Math.Abs(100 - firstNumber) < Math.Abs(100 - secNumber))
+            Console.WriteLine(firstNumber);
+        else Console.WriteLine(secNumber);
+    }
+
+    //Q20 
+    public static void AreInRange20To50()
+    {
+        Console.Write("Enter first number ");
+        int firstNumber = Convert.ToInt32(Console.ReadLine());
+        Console.Write("Enter sec number ");
+
+        int secNumber = Convert.ToInt32(Console.ReadLine());
+        if (((firstNumber >= 40 && firstNumber <= 50) && (secNumber >= 40 && secNumber <= 50)) || ((firstNumber >= 50 && firstNumber <= 60) && (secNumber >= 50 && secNumber <= 60)))
+            Console.WriteLine("True");
+        else Console.WriteLine("False");
+
+    }
+    //Q21
+    public static void LargestPositive()
+    {
+        Console.Write("Enter first number ");
+        int firstNumber = Convert.ToInt32(Console.ReadLine());
+        Console.Write("Enter sec number ");
+
+        int secNumber = Convert.ToInt32(Console.ReadLine());
+        if (((firstNumber >= 20 && firstNumber <= 30) && (secNumber >= 20 && secNumber <= 30)))
+            Console.WriteLine(Math.Max(firstNumber, secNumber));
+        else Console.WriteLine(0);
+
+    }
+    //Q22
+    public static void StringContainsMoreThen4Zeds()
+    {
+        Console.Write("Enter string ");
+        string anything = Console.ReadLine();
+        string temp;
+        if (anything.Length >= 4)
+        {
+            temp = anything.Substring(1, 3);
+            if (temp.Contains("z"))
+                Console.WriteLine("true");
+            else Console.WriteLine("false");
+        }
+        else Console.WriteLine("please more than 3 char");
+
+    }
+    //Q23
+
+    public static void SameLastDigit()
+    {
+        Console.Write("Enter first number ");
+        int firstNumber = Convert.ToInt32(Console.ReadLine());
+        Console.Write("Enter sec number ");
+
+        int secNumber = Convert.ToInt32(Console.ReadLine());
+        if (Math.Abs(firstNumber % 10) == Math.Abs(secNumber % 10))
+            Console.WriteLine("true");
+        else Console.WriteLine("false");
+
+    }
+    //Q24
+    public static void ConvertLast3CharToUpper()
+    {
+        Console.Write("Enter string ");
+        string anything = Console.ReadLine();
+        if (anything.Length <= 3)
+            Console.WriteLine(anything.ToUpper());
+        else Console.WriteLine(anything.Remove(anything.Length - 3) + anything.Substring(anything.Length - 3).ToUpper());
+    }
+    //Q25
+    public static void CreateString()
+    {
+        Console.Write("Enter string ");
+        string anything = Console.ReadLine();
+        Console.Write("Enter number  ");
+        int number = Convert.ToInt32(Console.ReadLine());
+        for (int i = 0; i < number; i++)
+        {
+            Console.Write(anything);
+        }
+        Console.WriteLine("");
+    }
+    //1. Write a C# Sharp program to accept two integers and check whether they are equal or not.
+    static string ifTwoNumberEquals(int n1, int n2)
+    =>
+        n1 == n2 ?
+        $"{n1} and {n2} are equal" :
+        $"{n1} and {n2} are not equal";
+
+
+
+    //2. Write a C# Sharp program to check whether a given number is even or odd.
+    static string isEvenNumber(int n1)
+    =>
+        (n1 % 2 == 0) ? "even" : "odd";
+
+
+    //3. Write a C# Sharp program to check whether a given number is positive or negative.
+    static string isNumberPositiveOrNegative(int n1)
+    =>
+        $"{n1} is a {(n1 > 0 ? "positive" : "negative")} number";
+
+
+    //4. Write a C# Sharp program to find out whether a given year is a leap year or not.
+    static string isLeapYear(int year)
+    =>
+        (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0) ?
+        $"{year} is a leap year." :
+        $"{year} is not leap year.";
+
+
+
+    //5. Write a C# Sharp program to read the age of a candidate and determine whether it
+    //is eligible for casting his/her own vote.
+    static string isEligibleOrNot(int n1)
+    =>
+       n1 > 18 ?
+       ("Congratulation! You are eligible for casting your vote.") :
+       ("You are not eligible to cast your own vote.");
+
+
+
+    //6. Write a C# Sharp program to read the value of an integer m and display the
+    //value of n is 1 when m is larger than 0, 0 when m is 0 and -1 when m is less than 0.
+    static int getN(int n1)
+    =>
+       n1 > 0 ? 1 : (n1 < 0 ? -1 : 0);
+
+
+    //7. Write a C# Sharp program to accept a person's height in centimeters and categorize
+    //them according to their height.
+    static string categorizeHeight(int height)
+    =>
+        height switch
+        {
+            _ when height < 150 => "Dwarf",
+            _ when height >= 150 && height < 170 => "Average",
+            _ when height >= 170 && height < 190 => "Tall",
+            _ => "Very Tall",
+        };
+
+
+    //8. Write a C# Sharp program to find the largest of three numbers
+    static string largestOf3Numbers(int n1, int n2, int n3)
+    {
+
+        string maxKey = new Dictionary<string, int>()
+            {
+                { "1st", n1 },
+                { "2nd", n2 },
+                { "3rd", n3 }
+            }.Aggregate((x, y) => x.Value > y.Value ? x : y)
+        .Key;
+
+        return $"The {maxKey} Number is the greatest among three";
+    }
+
+
+    //9. Write a C# Sharp program to accept a coordinate point in an XY coordinate
+    //system and determine in which quadrant the coordinate point lies.
+    static string coordinateXY(int x, int y)
+    {
+        string result = "";
+
+        if (x > 0 && y > 0)
+            result = "First quadrant";
+        else if (x < 0 && y > 0)
+            result = "Second quadrant";
+        else if (x < 0 && y < 0)
+            result = "Third quadrant";
+        else if (x > 0 && y < 0)
+            result = "Fourth quadrant";
+        else
+            result = "Origin";
+
+        return result;
+    }
+
+
+
+    //10. Write a C# Sharp program to determine the eligibility for admission to a
+    //professional course based on the following criteria
+    static string isEligibleForAdmission(
+        int physicsMarks,
+        int chemistryMarks,
+        int mathMarks
+        )
+    {
+        int sum = new[] { physicsMarks, chemistryMarks, mathMarks }.Sum();
+
+
+        return (sum >= 180) || (sum + mathMarks) >= 140 ?
+               "The candidate is eligible for admission." :
+               "The candidate is not eligible for admission.";
+
+    }
+
+
+    //11. Write a C# Sharp program to calculate the root of a quadratic equation.
+    static string calculateRoots(
+        int a,
+        int b,
+        int c
+        )
+    {
+        double discriminant = (b * b) - (4 * a * c);
+
+        if (discriminant > 0)
+        {
+            double root1 = (-b + Math.Sqrt(discriminant)) / (2 * a);
+            double root2 = (-b - Math.Sqrt(discriminant)) / (2 * a);
+            return "the root is : " + root1 + "," + root2;
+        }
+        else
+        {
+            return "Roots are imaginary; No Solution.";
+        }
+
+    }
+
+
+    //12. Write a C# Sharp program to read roll no, name and marks of three
+    //subjects and calculate the total, percentage and division.
+    static void readAndShowStudentInfo()
+    {
+        Console.Write("Input the Roll Number of the student: ");
+        int rollNumber = Convert.ToInt32(Console.ReadLine());
+
+        Console.Write("Input the Name of the Student: ");
+        string name = Console.ReadLine();
+
+        Console.Write("Input the marks of Physics, Chemistry and Computer Application: ");
+        List<string> marksInput = Console.ReadLine().Split(' ').Where(x => !string.IsNullOrWhiteSpace(x)).ToList();
+
+        int physicsMarks = Convert.ToInt32(marksInput[0]);
+        int chemistryMarks = Convert.ToInt32(marksInput[1]);
+        int computerMarks = Convert.ToInt32(marksInput[2]);
+
+        int totalMarks = physicsMarks + chemistryMarks + computerMarks;
+        double percentage = (double)totalMarks / 3;
+
+        string division = getDivision(percentage);
+
+        Console.WriteLine($"Roll No: {rollNumber}");
+        Console.WriteLine($"Name of Student: {name}");
+        Console.WriteLine($"Marks in Physics: {physicsMarks}");
+        Console.WriteLine($"Marks in Chemistry: {chemistryMarks}");
+        Console.WriteLine($"Marks in Computer Application: {computerMarks}");
+        Console.WriteLine($"Total Marks: {totalMarks}");
+        Console.WriteLine($"Percentage: {percentage.ToString("F2")}");
+        Console.WriteLine($"Division: {division}");
+    }
+
+    static string getDivision(double p)
+    =>
+        p switch
+        {
+            _ when p >= 80 => "First",
+            _ when p >= 60 => "Second",
+            _ when p >= 40 => "Third",
+            _ => "Fail"
+        };
+
+
+
+    //13. Write a C# Sharp program to read temperature in centigrade and display a
+    //suitable message according to the temperature state below:
+    static string getTemperatureMessage(int t)
+    =>
+        t switch
+        {
+            _ when t < 0 => "Freezing weather",
+            _ when t >= 0 && t <= 10 => "Very Cold weather",
+            _ when t > 10 && t <= 20 => "Cold weather",
+            _ when t > 20 && t <= 30 => "Normal in Temp",
+            _ when t > 30 && t <= 40 => "Its Hot",
+            _ => "Its Very Hot"
+        };
+
+
+
+    //14. Write a C# Sharp program to check whether a triangle is Equilateral,
+    //Isosceles or Scalene.
+    static string checkTriangleType(
+        int n1,
+        int n2,
+        int n3
+        )
+    {
+        string result;
+
+        if (n1 == n2 && n2 == n3)
+        {
+            result = ("This is an equilateral triangle.");
+        }
+        else if (n1 == n2 || n1 == n3 || n2 == n3)
+        {
+            result = ("This is an isosceles triangle.");
+        }
+        else
+        {
+            result = ("This is a scalene triangle.");
+        }
+
+        return result;
+
+    }
+
+
+    //15. Write a C# Sharp program to check whether a triangle can be formed by
+    //the given angles value.
+    static string ifTriangleFormatAngler(string n1) =>
+         n1
+        .Split(" ")
+        .Where(x => !string.IsNullOrWhiteSpace(x))
+        .Select(x => Convert.ToInt32(x)).Sum() == 180 ? "The triangle is valid" : "The triangle is not valid";
+
+
+    //17. Write a C# Sharp program to calculate profit and loss on a transaction.
+    static string calculateProfit(double profit, double cost)
+    {
+        double result = (profit - cost);
+
+        return result switch
+        {
+            _ when result > 0 => "You can book your profit amount : " + result,
+            _ when result < 0 => "You have incurred a loss of: " + Math.Abs(result),
+            _ => "No profit or loss."
+        };
+
+    }
+
+
+    //18. Write a C# Sharp program to calculate and print the electricity bill of a
+    //customer.From the keyboard, the customer's name, ID, and unit consumed
+    //should be taken and displayed along with the total amount due.
+    static void printElectricity()
+    {
+        Console.Write("Enter the customer ID: ");
+        int customerId = int.Parse(Console.ReadLine());
+
+        Console.Write("Enter the customer name: ");
+        string customerName = Console.ReadLine();
+
+        Console.Write("Enter the units consumed: ");
+        int unitsConsumed = int.Parse(Console.ReadLine());
+
+        double unitCharge =
+            unitsConsumed switch
+            {
+                _ when unitsConsumed <= 199 => 1.20,
+                _ when unitsConsumed >= 200 && unitsConsumed < 400 => 1.50,
+                _ when unitsConsumed >= 400 && unitsConsumed < 600 => 1.80,
+                _ when unitsConsumed >= 600 => 1.80,
+                _ => 0
+            };
+
+
+        double charges = unitsConsumed * unitCharge;
+        double surchargeAmount = 0;
+
+        if (charges > 400)
+        {
+            surchargeAmount = charges * 0.15;
+        }
+
+        double netPaid = charges + surchargeAmount;
+
+        Console.WriteLine("\nCustomer IDNO: " + customerId);
+        Console.WriteLine("Customer Name: " + customerName);
+        Console.WriteLine("Unit Consumed: " + unitsConsumed);
+        Console.WriteLine("Amount Charges @Rs. " + unitCharge + " per unit: " + charges.ToString("F2"));
+        Console.WriteLine("Surcharge Amount: " + surchargeAmount.ToString("F2"));
+        Console.WriteLine("Net Amount Paid By the Customer: " + netPaid.ToString("F2"));
+
+    }
+
+
+    //19. Write a program in C# Sharp to accept a grade and declare the equivalent
+    static string getGradeDiscrip(char grade)
+    =>
+        grade switch
+        {
+            'e' => "Excellent",
+            'v' => "Very Good",
+            'g' => "Good",
+            'a' => "Average",
+            'f' => "Fail",
+            _ => "Invalid grade"
+        };
+
+
+    enum DayOfWeek
+    {
+        Sunday = 1,
+        Monday = 2,
+        Tuesday = 3,
+        Wednesday = 4,
+        Thursday = 5,
+        Friday = 6,
+        Saturday = 7
+    }
+
+    //20. Write a C# Sharp program to read any day number as an integer and
+    //display the name of the day as a word.
+    static string getDayName(int dayNumber)
+     =>
+        (Enum.IsDefined(typeof(DayOfWeek), dayNumber)) ?
+             ((DayOfWeek)dayNumber).ToString() :
+             "Invalid day number";
+
+
+
+
+    //21. Write a program in C# Sharp to read any digit, display in the word.
+    static string convertNumberToLetter(int n1)
+    {
+        if (n1 < 0 || n1 > 99)
+            return "Invalid number";
+
+        if (n1 <= 20)
+            return ((DigitWord)n1).ToString();
+
+        int tens = n1 / 10;
+        int ones = n1 % 10;
+
+        string words = ((TensDigitWord)tens).ToString();
+
+        if (ones > 0)
+            words += " " + ((DigitWord)ones).ToString();
+
+        return words;
+    }
+
+    enum DigitWord
+    {
+        Zero, One, Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten,
+        Eleven, Twelve, Thirteen, Fourteen, Fifteen, Sixteen, Seventeen, Eighteen, Nineteen, twenty
+    }
+
+    enum TensDigitWord
+    {
+        Twenty = 2, Thirty = 3, Forty = 4, Fifty = 5, Sixty = 6, Seventy = 7, Eighty = 8, Ninety = 9
+    }
+
+
+
+    //22. Write C# Sharp program to read any Month Number in integer and display
+    //Month name.
+    static string getMonthName(int n1)
+    =>
+        (Enum.IsDefined(typeof(Month), n1)) ?
+            ((Month)n1).ToString() :
+            "Invalid month number";
+
+
+    enum Month
+    {
+        January = 1,
+        February,
+        March,
+        April,
+        May,
+        June,
+        July,
+        August,
+        September,
+        October,
+        November,
+        December
+    }
+
+
+
+    //23. Write a program in C# Sharp to read any Month Number in integer and
+    //display the number of days for this month.
+    static Dictionary<int, int> monthDays = new Dictionary<int, int>
+        {
+            { 1, 31 },
+            { 2, 28 },
+            { 3, 31 },
+            { 4, 30 },
+            { 5, 31 },
+            { 6, 30 },
+            { 7, 31 },
+            { 8, 31 },
+            { 9, 30 },
+            { 10, 31 },
+            { 11, 30 },
+            { 12, 31 }
+        };
+
+    static string getNumberMonth(int n1)
+    =>
+       (monthDays.TryGetValue(n1, out int days)) ?
+        $"Month has {days} days" :
+        "Invalid month number";
+
+
+    //24. Write a C# Sharp program that calculates the area of geometrical shapes using a menu-driven approach.
+    static void calculateGeometricalShape()
+    {
+        Console.WriteLine("Geometry Calculator");
+        Console.WriteLine("-------------------");
+        Console.WriteLine("1. Calculate the area of a circle");
+        Console.WriteLine("2. Calculate the area of a rectangle");
+        Console.WriteLine("3. Calculate the area of a triangle");
+        Console.WriteLine("4. Calculate the area of a square");
+        Console.WriteLine("5. Quit");
+        Console.WriteLine();
+
+        Console.Write("Enter your choice (1-4): ");
+        int choice = int.Parse(Console.ReadLine());
+
+        Action calculateArea = null;
+
+        switch (choice)
+        {
+            case 1:
+                calculateArea = calculateCircleArea;
+                break;
+            case 2:
+                calculateArea = calculateRectangleArea;
+                break;
+            case 3:
+                calculateArea = calculateTriangleArea;
+                break;
+            case 4:
+                calculateArea = calculateSquareArea;
+                break;
+            case 5:
+                Console.WriteLine("End!");
+                return;
+            default:
+                Console.WriteLine("Invalid choice");
+                return;
+        }
+
+        calculateArea?.Invoke();
+    }
+
+
+    static void calculateCircleArea()
+    {
+        Console.Write("Enter the radius of the circle: ");
+        double radius = double.Parse(Console.ReadLine());
+
+        double area = Math.PI * radius * radius;
+        Console.WriteLine($"The area of the circle is: {area}");
+    }
+
+    static void calculateRectangleArea()
+    {
+        Console.Write("Enter the length of the rectangle: ");
+        double length = double.Parse(Console.ReadLine());
+
+        Console.Write("Enter the width of the rectangle: ");
+        double width = double.Parse(Console.ReadLine());
+
+        double area = length * width;
+        Console.WriteLine($"The area of the rectangle is: {area}");
+    }
+
+    static void calculateTriangleArea()
+    {
+        Console.Write("Enter the base length of the triangle: ");
+        double baseLength = double.Parse(Console.ReadLine());
+
+        Console.Write("Enter the height of the triangle: ");
+        double height = double.Parse(Console.ReadLine());
+
+        double area = 0.5 * baseLength * height;
+        Console.WriteLine($"The area of the triangle is: {area}");
+    }
+
+
+    static void calculateSquareArea()
+    {
+        Console.Write("Enter the side length of the square: ");
+        double sideLength = double.Parse(Console.ReadLine());
+
+        double area = sideLength * sideLength;
+        Console.WriteLine($"The area of the square is: {area}");
+    }
+
+
+    //Q1 Part 3
+    public static void Input()
+    {
+        Console.WriteLine("Input the string:");
+        string input = Console.ReadLine();
+        Console.WriteLine("The string you entered is: " + input);
+
+    }
+
+    //Q2 Part 3
+    public static void LengthOfString()
+    {
+        Console.WriteLine("Input the string:");
+        string input = Console.ReadLine();
+        int length = 0;
+        foreach (char character in input)
+        {
+            length++;
+        }
+        Console.WriteLine("Length of the string is: " + length);
+    }
+    //Q3 Part 3
+    public static void SeparateCharacters()
+    {
+        Console.Write("Input the string: ");
+        string inputString = Console.ReadLine();
+        Console.WriteLine("The characters of the string are:");
+        foreach (char c in inputString)
+        {
+            Console.Write(c + " ");
+        }
+        Console.WriteLine();
+    }
+    //Q4 Part 3
+    public static void IndividualCaracters()
+    {
+        Console.Write("Input the string: ");
+        string inputString = Console.ReadLine();
+        Console.WriteLine("The characters of the string in reverse are:");
+        for (int i = inputString.Length - 1; i >= 0; i--)
+        {
+            Console.Write(inputString[i] + " ");
+        }
+        Console.WriteLine();
+    }
+    //Q5 Part 3
+    public static void TotalNumberOfWords()
+    {
+        Console.Write("Input the string: ");
+        string inputString = Console.ReadLine();
+        Console.WriteLine("Total number of words in the string is: " + inputString.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).Length);
+
+    }
+    //Q6 Part 3
+    public static void CompareStrings()
+    {
+        Console.Write("Input the 1st string: ");
+        string str1 = Console.ReadLine();
+        Console.Write("Input the 2nd string: ");
+        string str2 = Console.ReadLine();
+        if (str1.Length != str2.Length)
+        {
+            Console.WriteLine("The length of both strings is not equal.");
+        }
+        else
+        {
+            bool equal = true;
+            for (int i = 0; i < str1.Length; i++)
+            {
+                if (str1[i] != str2[i])
+                {
+                    equal = false;
+                    break;
+                }
+            }
+
+            if (equal)
+            {
+                Console.WriteLine("The length of both strings are equal and both strings are equal.");
+            }
+            else
+            {
+                Console.WriteLine("The length of both strings are equal, but the strings are not equal.");
+            }
+        }
+
+    }
+    //Q7 Part 3
+    public static void CountNumberOfAlphabets()
+    {
+        Console.Write("Input the 1st string: ");
+        string inputString = Console.ReadLine();
+        int alphabetCount = 0;
+        int digitCount = 0;
+        int specialCharCount = 0;
+        foreach (char c in inputString)
+        {
+            if (char.IsLetter(c))
+            {
+                alphabetCount++;
+            }
+            else if (char.IsDigit(c))
+            {
+                digitCount++;
+            }
+            else
+            {
+                specialCharCount++;
+            }
+        }
+        Console.WriteLine("Number of Alphabets in the string is: " + alphabetCount);
+        Console.WriteLine("Number of Digits in the string is: " + digitCount);
+        Console.WriteLine("Number of Special Characters in the string is: " + specialCharCount);
+    }
+    //Q8 Part 3
+    public static void CopyString()
+    {
+        Console.Write("Input the string: ");
+        string inputString = Console.ReadLine();
+        // Create a new string and copy the input string to it
+        string copiedString = string.Copy(inputString);
+        // Output the original and copied strings
+        Console.WriteLine("The First string is: " + inputString);
+        Console.WriteLine("The Second string is: " + copiedString);
+        // Output the number of characters copied
+        int numCharactersCopied = inputString.Length;
+        Console.WriteLine("Number of characters copied: " + numCharactersCopied);
+
+    }
+    //Q9 Part 3
+    public static void CountVowels()
+    {
+        Console.WriteLine("Enter the string: ");
+        string input = Console.ReadLine();
+        int vowelCount = 0;
+        int consonantCount = 0;
+        foreach (char c in input)
+        {
+            if (Char.IsLetter(c))
+            {
+                if ("aeiou".Contains(c))
+                    vowelCount++;
+                else
+                    consonantCount++;
+            }
+        }
+        Console.WriteLine("The total number of vowels in the string is: " + vowelCount);
+        Console.WriteLine("The total number of consonants in the string is: " + consonantCount);
+    }
+    //Q10 Part 3
+    public static void MaximumNumberOfCharacters()
+    {
+        Console.Write("Input the string: ");
+        string input = Console.ReadLine();
+        int[] charCount = new int[128];
+        int maxCount = 0;
+        char maxChar = '\0';
+        foreach (char c in input)
+        {
+            if (char.IsLetter(c))
+            {
+                charCount[c]++;
+                if (charCount[c] > maxCount)
+                {
+                    maxCount = charCount[c];
+                    maxChar = c;
+                }
+            }
+        }
+        Console.WriteLine("The Highest frequency of character '" + maxChar + "'");
+        Console.WriteLine("appears number of times: " + maxCount);
+    }
+    //Q11 Part 3
+    public static void SortStringAscending()
+    {
+        Console.Write("Input the string: ");
+            string input = Console.ReadLine();
+        string[] words = input.Split(' ');
+        Array.Sort(words);
+        Console.Write("After sorting the string appears like: ");
+        foreach (string word in words)
+        {
+            foreach (char c in word)
+            {
+                Console.Write(c + " ");
+            }
+        }
+        Console.WriteLine(); 
+    }
+    //Q12 Part 3
+    public static void SortStringBubbleSort()
+    {
+        Console.Write("Input number of strings: ");
+        int numStrings = int.Parse(Console.ReadLine());
+        string[] strings = new string[numStrings];
+
+        Console.WriteLine("Input " + numStrings + " strings below:");
+        for (int i = 0; i < numStrings; i++)
+            strings[i] = Console.ReadLine();
+        for (int i = 0; i < numStrings - 1; i++)
+            for (int j = 0; j < numStrings - i - 1; j++)
+                if (string.Compare(strings[j], strings[j + 1]) > 0)
+                {
+                    string temp = strings[j];
+                    strings[j] = strings[j + 1];
+                    strings[j + 1] = temp;
+                }
+        Console.WriteLine("After sorting, the array appears like:");
+        foreach (string str in strings)
+            Console.WriteLine(str);
+    }
+
+    //Q13 Part 3
+    public static void SubSubstring(string sentence, int start, int end)
+    {
+        end += start;
+        for (int i = start - 1; i < end; i++)
+        {
+            Console.Write(sentence[i]);
+
+        }
+    }
+    //Q14 Part 3
+    public static void SubstringExist(string sentence, string word)
+    {
+        Console.WriteLine(sentence.Contains(word) ? "The substring exists in the string" : "no");
+    }
+    //Q15 Part 3
+    public static void UpperToLower(string sentence)
+    {
+
+        for (int i = 0; i < sentence.Length; i++)
+        {
+
+            if (Char.IsUpper(sentence[i]))
+            {
+                Console.Write(sentence[i].ToString().ToLower());
+            }
+            else
+            {
+                Console.Write(sentence[i].ToString().ToUpper());
+
+            }
+        }
+    }
+    //Q16 part 3
+    public static void UserInput()
+
+    {
+        Console.Write("enter you username :");
+        string user = Console.ReadLine();
+        Console.Write("enter you password :");
+        string pass = Console.ReadLine();
+
+        Console.WriteLine("Password entered successfully!");
+    }
+    //Q17 part 3
+    public static void PositionOfSubstring(string sentince, string word)
+    {
+        Console.WriteLine(sentince.IndexOf(word));
+    }
+    //Q18 part 3
+    public static void IsAlaphabet(char letter)
+    {
+        if (char.IsUpper(letter))
+        {
+            Console.WriteLine(letter.ToString() + " is upper");
+        }
+        else if (char.IsLower(letter))
+        {
+            Console.WriteLine("Lower");
+        }
+        else Console.WriteLine("Its not a letter");
+    }
+    //Q19 part 3
+    public static void SubStinrgCount(string sentence, string word)
+    {
+
+    }
+    //Q20 part 3
+    public static void SubStringInseriton(string sentence, string word, string indexWord)
+    {
+        sentence = sentence.Insert(sentence.IndexOf(indexWord) + 1, word);
+        Console.WriteLine(sentence);
+    }
+    //Q21 part 3
+    public static void StringCompartion()
+    {
+        string str1 = "computer";
+        string str2 = "system";
+        string substr1 = str1.Substring(2, 4); // "mput"
+        string substr2 = str2.Substring(0, 4); // "syst"
+
+        int result = string.Compare(substr1, substr2);
+
+        if (result < 0)
+        {
+            Console.WriteLine("Substring '{0}' is less than substring '{1}'", substr1, substr2);
+        }
+        else if (result > 0)
+        {
+            Console.WriteLine("Substring '{0}' is greater than substring '{1}'", substr1, substr2);
+        }
+        else
+        {
+            Console.WriteLine("Substring '{0}' is equal to substring '{1}'", substr1, substr2);
+        }
+
+    }
+    //Q22 part 3
+    public static void StringCompartionIgnoreCasing()
+    {
+        string str1 = "Hello World";
+        string str2 = "hello world";
+
+        bool isSameIgnoreCase = string.Compare(str1, 0, str2, 0, 5, StringComparison.OrdinalIgnoreCase) == 0;
+
+        bool isSameCaseSensitive = string.Compare(str1, 0, str2, 0, 5, StringComparison.Ordinal) == 0;
+
+        Console.WriteLine("Comparison ignoring case: {0}", isSameIgnoreCase ? "Substrings are the same" : "Substrings are different");
+        Console.WriteLine("Comparison considering case: {0}", isSameCaseSensitive ? "Substrings are the same" : "Substrings are different");
+
+    }
+    //Q23
+    public static void StringCompartionTurkey()
+    {
+        string str1 = "café";
+        string str2 = "cafe";
+
+        CultureInfo culture = new CultureInfo("en-US", false);
+
+        bool isSameIgnoreCase = string.Compare(str1, 0, str2, 0, 4, culture, CompareOptions.IgnoreCase) == 0;
+
+        Console.WriteLine("Comparison ignoring case using culture: {0}", isSameIgnoreCase ? "Substrings are the same" : "Substrings are different");
+    }
+
+    //Q24 part 3
+    public static void LastNameAlphabet()
+    {
+        List<string> names = new List<string>(5);
+        names.Add("Naveen Sharma");
+        names.Add("Chris Love");
+        names.Add("Mahesh Chand");
+        names.Add("Allen o'neill");
+
+        names.Sort((x, y) =>
+        {
+            string[] xParts = x.Split(' ');
+            string[] yParts = y.Split(' ');
+            string xLastName = xParts[xParts.Length - 1];
+            string yLastName = yParts[yParts.Length - 1];
+            return string.Compare(xLastName, yLastName);
+        });
+
+        foreach (var name in names)
+        {
+            Console.WriteLine(name);
+        }
+    }
+    //Q25 part 3
+
+    //Q1 P4
+    public static void First10Nums()
+    {
+        for (int i = 1; i <= 10; i++)
+            Console.Write(i + " ");
+    }
+    //Q2 p4
+    public static void FirstNatural10Nums()
+    {
+        int sum = 0;
+        for (int i = 1; i <= 10; i++)
+        {
+            Console.Write(i + " ");
+            sum += i;
+        }
+        Console.WriteLine("\n" + sum);
+    }
+    //Q3 p4
+    public static void SumOfNaturalNums()
+    {
+        Console.Write("enter  number ");
+        int number = Convert.ToInt32(Console.ReadLine());
+        int sum = 0;
+        for (int i = 1; i <= number; i++)
+        {
+            Console.Write(i + " ");
+            sum += i;
+        }
+        Console.WriteLine("\n" + sum);
+    }
+    //Q4 p4
+    public static void First10NumsWithAvg()
+    {
+        int sum = 0;
+        int number;
+        for (int i = 0; i < 10; i++)
+        {
+            Console.Write("enter  number ");
+            number = Convert.ToInt32(Console.ReadLine());
+            sum += number;
+        }
+        Console.WriteLine("\n sum is :" + sum);
+        Console.WriteLine("\n avg is :" + sum / 10.0);
+    }
+    //Q5 p4
+    public static void CubeOfNum()
+    {
+        Console.Write("enter  term ");
+        int term = Convert.ToInt32(Console.ReadLine());
+        int number;
+        for (int i = 0; i < term; i++)
+        {
+            Console.Write("enter  number ");
+            number = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("\n Number is : {0} and cube of the {0} is :{1} ", number, (number * number * number));
+        }
+
+    }
+    //Q6 p4
+    public static void MultiplicationOfNums()
+    {
+        Console.Write("enter  number ");
+        int number = Convert.ToInt32(Console.ReadLine());
+        for (int i = 1; i <= 10; i++)
+        {
+
+            Console.WriteLine("\n {0} X {1} = {2} ", number, i, i * number);
+
+        }
+    }
+    //Q7 p4
+    public static void MultiplicationTableVertically()
+    {
+        Console.Write("enter  number ");
+        int number = Convert.ToInt32(Console.ReadLine());
+        for (int i = 1; i <= number; i++)
+        {
+            for (int j = 1; j <= 10; j++)
+                Console.Write("\n {0} X {1} = {2}  ", i, j, i * j);
+            Console.WriteLine("");
+        }
+    }
+    //Q8 p4
+    public static void OddNumsSum()
+    {
+
+        Console.Write("enter  number ");
+        int number = Convert.ToInt32(Console.ReadLine());
+        int i = 1;
+        int sum = 0;
+        int count = 0;
+        while (number > count)
+        {
+            if (i % 2 == 1)
+            {
+                Console.Write(i + " ");
+                sum += i;
+                i += 2;
+            }
+            count++;
+
+        }
+        Console.Write("\n sum is :" + sum);
+    }
+    //Q9 p4
+    public static void RightTriangalAstrkis()
+    {
+        Console.Write("Input the number of terms: ");
+        int numbers = Convert.ToInt32(Console.ReadLine());
+
+        for (int i = 0; i < numbers; i++)
+        {
+            for (int k = 0; k < i + 1; k++)
+            {
+                Console.Write("*");
+            }
+            Console.WriteLine();
+        }
+    }
+    //Q10 p4
+    public static void RightTriangalWithNum()
+    {
+        Console.Write("Input the number of terms: ");
+        int numbers = Convert.ToInt32(Console.ReadLine());
+
+        for (int i = 1; i < numbers; i++)
+        {
+            for (int k = 1; k < i + 1; k++)
+            {
+                Console.Write(k);
+            }
+            Console.WriteLine();
+        }
+    }
+    //Q11 p4
+    public static void RightTriangalWithNumRepeats()
+    {
+        Console.Write("Input the number of terms: ");
+        int numbers = Convert.ToInt32(Console.ReadLine());
+
+        for (int i = 1; i < numbers; i++)
+        {
+            for (int k = 1; k < i + 1; k++)
+            {
+                Console.Write(i);
+            }
+            Console.WriteLine();
+        }
+    }
+    //Q12 p4
+    public static void RightTriangalWithNumIncreasedByOne()
+    {
+
+        Console.Write("Input the number of terms: ");
+        int numbers = Convert.ToInt32(Console.ReadLine());
+        int count = 1;
+        for (int i = 1; i < numbers; i++)
+        {
+            for (int k = 1; k < i + 1; k++)
+            {
+                Console.Write(count + " ");
+                count++;
+            }
+            Console.WriteLine();
+        }
+    }
+    //Q13 p4
+    public static void PyramidWithNumIncreasedByOne()
+    {
+        Console.Write("Input the number of terms: ");
+        int numbers = Convert.ToInt32(Console.ReadLine());
+        int count = 1;
+        int spec = numbers + 4 - 1;
+        for (int i = 1; i < numbers; i++)
+        {
+            for (int j = spec; j >= 1; j--)
+            {
+                Console.Write(" ");
+
+            }
+            for (int k = 1; k < i + 1; k++)
+            {
+
+                Console.Write(count + " ");
+                count++;
+
+            }
+            spec--;
+            Console.WriteLine();
+        }
+    }
+    //Q14 p4
+    public static void PyramidWithAsterik()
+    {
+        Console.Write("Input the number of terms: ");
+        int numbers = Convert.ToInt32(Console.ReadLine());
+        int spec = numbers + 4 - 1;
+        for (int i = 1; i < numbers; i++)
+        {
+            for (int j = spec; j >= 1; j--)
+            {
+                Console.Write(" ");
+
+            }
+            for (int k = 1; k < i + 1; k++)
+            {
+
+                Console.Write("* ");
+
+            }
+            spec--;
+            Console.WriteLine();
+        }
+    }
+    //Q15 p4
+    public static int Factorial(int f)
+    {
+
+        if (f == 0)
+            return 1;
+        else
+            return f * Factorial(f - 1);
+
+    }
+    //Q16 p4
+    public static void EvenNaturalNumberAndSum()
+    {
+        Console.Write("enter  number ");
+        int number = Convert.ToInt32(Console.ReadLine());
+        int i = 2;
+        int sum = 0;
+        int count = 0;
+        while (number > count)
+        {
+            if (i % 2 == 0)
+            {
+                Console.Write(i + " ");
+                sum += i;
+                i += 2;
+            }
+            count++;
+
+        }
+
+    }
+    //Q17 p4
+    public static void PyrmidlWithNumIncreasedByOne()
+    {
+        Console.Write("Input the number of terms: ");
+        int numbers = Convert.ToInt32(Console.ReadLine());
+        int spec = numbers + 4 - 1;
+        for (int i = 1; i < numbers; i++)
+        {
+            for (int j = spec; j >= 1; j--)
+            {
+                Console.Write(" ");
+
+            }
+            for (int k = 1; k < i + 1; k++)
+            {
+
+                Console.Write(i + " ");
+
+            }
+            spec--;
+            Console.WriteLine();
+        }
+    }
+    //Q18 p4
+    public static void SumOfSeries()
+    {
+        Console.Write("Enter  number ");
+        int number = Convert.ToInt32(Console.ReadLine());
+        int x = Convert.ToInt32(Console.ReadLine());
+        float sum = 1;
+        int temp = 2;
+
+        float Factorial(int f)
+        {
+            if (f == 0)
+                return 1;
+            else
+                return f * Factorial(f - 1);
+        }
+        for (int i = 2; i < number + 1; i++)
+        {
+            if (i % 2 == 0)
+            {
+                sum = sum + (-1 * (Convert.ToInt32(Math.Pow(x, temp))) / (float)(Factorial(temp)));
+                temp += 2;
+            }
+            else
+            {
+                sum = sum + (((Convert.ToInt32(Math.Pow(x, temp))) / (float)(Factorial(temp))));
+                temp += 2;
+
+            }
+            Console.WriteLine(sum);
+        }
+        Console.WriteLine("resulte :" + sum);
+
+    }
+    //Q19 p4
+    public static void HarmonicSeriesAndSum()
+    {
+
+        int numbers = Convert.ToInt32(Console.ReadLine());
+        double resulte = 0;
+        for (int i = 1; i <= numbers; i++)
+        {
+            Console.Write(1 + "/" + i + " + ");
+            resulte += 1 / (float)i;
+        }
+        Console.Write("your resulte is " + resulte);
+    }
+    //Q20 p4
+    public static void PyrmidAstrik()
+    {
+        Console.Write("Input the number of terms: ");
+        int numbers = Convert.ToInt32(Console.ReadLine());
+
+        for (int i = 0; i < numbers; i++)
+        {
+            for (int k = 0; k < 2 * i + 1; k++)
+            {
+                Console.Write("*");
+            }
+            Console.WriteLine();
+        }
+    }
+    //Q21 p4
+    public static void SumOfSeries3()
+    {
+        Console.Write("Input the number of terms: ");
+        int numbers = Convert.ToInt32(Console.ReadLine());
+        int sum = 0;
+        int num = 9;
+        for (int i = 0; i < numbers; i++)
+        {
+            sum += num;
+            Console.Write(num + " ");
+            num = num * 10 + 9;
+        }
+        Console.WriteLine("\nThe sum of the series = " + sum);
+    }
+    //Q22 p4
+    public static void FloydTriangle()
+    {
+        Console.Write("Enter  number ");
+        int number = Convert.ToInt32(Console.ReadLine());
+
+        for (int i = 1; i <= number; i++)
+        {
+            for (int j = 1; j <= i; j++)
+            {
+                if ((i + j) % 2 == 0)
+                    Console.Write(1);
+                else Console.Write(0);
+
+            }
+
+            Console.WriteLine("");
+        }
+    }
+    //Q23 p4
+    public static void SumOfSeries4()
+    {
+        Console.Write("Enter  number ");
+        int number = Convert.ToInt32(Console.ReadLine());
+        int x = Convert.ToInt32(Console.ReadLine());
+        float sum = 1 + x;
+        int temp = 2;
+
+
+        for (int i = 0; i < number; i++)
+        {
+
+            sum += (Convert.ToInt32(Math.Pow(x, temp))) / (Factorial(temp));
+            temp++;
+        }
+        Console.WriteLine("resulte :" + sum);
+
+    }
+    //Q24 p4
+    public static void SumOfSeries5()
+    {
+        Console.Write("Enter  term ");
+        int number = Convert.ToInt32(Console.ReadLine());
+        Console.Write("Enter  number ");
+        int x = Convert.ToInt32(Console.ReadLine());
+        float sum = x;
+        int temp = 3;
+
+        for (int i = 2; i < number + 1; i++)
+        {
+            if (i % 2 == 0)
+            {
+                sum = sum + (-1 * (Convert.ToInt32(Math.Pow(x, temp))));
+                temp += 2;
+            }
+            else
+            {
+                sum = sum + (((Convert.ToInt32(Math.Pow(x, temp)))));
+                temp += 2;
+
+            }
+            Console.WriteLine(sum);
+        }
+        Console.WriteLine("resulte :" + sum);
+
+    }
+    //Q25 p4
+    public static void SquareNaturalNumbersAndSum()
+    {
+        Console.Write("Enter  number ");
+        int number = Convert.ToInt32(Console.ReadLine());
+        int x = 0;
+        for (int i = 1; i <= number; i++)
+            x += (i * i);
+        Console.WriteLine("resulte :" + x);
+    }
+    static void Main(string[] args)
+    {
+
+    }
+}
