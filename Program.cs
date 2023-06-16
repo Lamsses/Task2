@@ -1,4 +1,4 @@
-﻿//using System;
+using System;
 //Q1
 //public class Node
 //{
@@ -249,6 +249,7 @@
 //public class LinkedList
 //{
 //    private Node head;
+//    public int count = 0;
 
 //    public LinkedList()
 //    {
@@ -286,12 +287,20 @@
 //        {
 
 //            Node current = head;
-//            while (current.data != position)
+
+//            while (current != null)
 //            {
+//                if(count == position-1)
+//                {
+//                    newNode.next = current.next;
+//                    current.next = newNode;
+
+//                    break;
+//                }
+//                count++;
 //                current = current.next;
 //            }
-//            newNode.next = current.next;
-//            current.next = newNode;
+
 //        }
 //    }
 
@@ -313,12 +322,14 @@
 //    {
 //        LinkedList linkedList = new LinkedList();
 
-//        linkedList.AddNode(1);
+//        linkedList.AddNode(6);
 //        linkedList.AddNode(2);
-//        linkedList.AddNode(3);
 //        linkedList.AddNode(4,1);
+
+//        linkedList.AddNode(3);
 //        linkedList.AddNode(5);
-//        linkedList.AddNode(7,2);
+//        linkedList.AddNode(7, 2);
+
 
 
 //        Console.WriteLine("Singly Linked List:");
@@ -508,8 +519,18 @@
 //            current.next = newNode;
 //        }
 //    }
+//    public void DisplayList()
+//    {
+//        Node current = head;
+//        while (current != null)
+//        {
+//            Console.Write(current.data + " ");
+//            current = current.next;
+//        }
+//        Console.WriteLine();
+//    }
 
-//    public Node GetNode(int position)
+//    public int GetNode(int position)
 //    {
 //        Node current = head;
 //        int currentPosition = 0;
@@ -518,13 +539,13 @@
 //        {
 //            if (currentPosition == position)
 //            {
-//                return current;
+//                return current.data;
 //            }
 //            current = current.next;
 //            currentPosition++;
 //        }
 
-//        return null; 
+//        return -1;
 //    }
 //}
 
@@ -539,13 +560,13 @@
 //        linkedList.AddNode(3);
 //        linkedList.AddNode(4);
 //        linkedList.AddNode(5);
-
+//        linkedList.DisplayList();
 //        int position = Convert.ToInt32(Console.ReadLine());
-//        Node node = linkedList.GetNode(position);
+//        var node = linkedList.GetNode(position);
 
 //        if (node != null)
 //        {
-//            Console.WriteLine("Node at position {0}: {1}", position, node.data);
+//            Console.WriteLine("Node at position {0}: {1}", position, node);
 //        }
 //        else
 //        {
@@ -598,7 +619,7 @@
 //        }
 //    }
 
-//    public int GetNode(int data)
+//    public int GetIndex(int data)
 //    {
 //        Node current = head;
 //        int currentPosition = 0;
@@ -614,7 +635,7 @@
 //        }
 
 
-//        return -1; 
+//        return -1;
 //    }
 //}
 
@@ -633,7 +654,7 @@
 
 //        int position = Convert.ToInt32(Console.ReadLine());
 
-//        var node = linkedList.GetNode(position);
+//        var node = linkedList.GetIndex(position);
 
 //        if (node != null)
 //        {
